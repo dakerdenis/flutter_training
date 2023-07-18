@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: const Color.fromARGB(255, 31, 31, 31),
         listTileTheme: const ListTileThemeData(iconColor: Color.fromARGB(255, 214, 166, 20)),
-        appBarTheme: const AppBarTheme(backgroundColor: const Color.fromARGB(255, 214, 166, 20),
-        titleTextStyle: ),
+        appBarTheme: const AppBarTheme(backgroundColor:  Color.fromARGB(255, 214, 166, 20),
+        titleTextStyle:TextStyle(color: Colors.black, fontSize: 23) ),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
             color: Color.fromARGB(255, 255, 255, 255),
