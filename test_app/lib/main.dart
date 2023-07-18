@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView.builder(
         itemCount: _counter,
         itemBuilder: (context,i)=>ListTile(
+          leading:  Image.asset('assets/images/bitcoin.png', height: 25,width: 25,),
           title:  Text(
             "Bitcoins",
             style: theme.textTheme.bodyMedium,),
