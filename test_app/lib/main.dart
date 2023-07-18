@@ -16,9 +16,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 31, 31, 31),
+        listTileTheme: const ListTileThemeData(iconColor: Color.fromARGB(255, 214, 166, 20)),
+        appBarTheme: const AppBarTheme(backgroundColor: const Color.fromARGB(255, 214, 166, 20),
+        titleTextStyle: ),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
-            color: Color.fromARGB(255, 161, 56, 49),
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontWeight: FontWeight.w500,
+            fontSize: 20
+          ),
+          bodySmall: TextStyle(
+            color: Color.fromARGB(192, 255, 255, 255),
+            fontWeight: FontWeight.w300,
+            fontSize: 14
           )
         )
       ),
@@ -50,11 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        //  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: _counter,
+        separatorBuilder: (context, index)=> const Divider(),
         itemBuilder: (context,i)=>ListTile(
           leading:  Image.asset('assets/images/bitcoin.png', height: 25,width: 25,),
           title:  Text(
@@ -64,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               "2000\$",
               style: theme.textTheme.bodySmall,
             ),
+            trailing: Icon(Icons.arrow_forward_ios),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
