@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -30,23 +31,25 @@ class MyApp extends StatelessWidget {
                   color: Color.fromARGB(192, 255, 255, 255),
                   fontWeight: FontWeight.w300,
                   fontSize: 14))),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => CryptoListScreen(title: 'Flutter Demo Home Page'),
+        '/coin': (context) => CryptoCoinScreen(),
+      },
+      //home: const CryptoListScreen(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CryptoListScreen extends StatefulWidget {
+  const CryptoListScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CryptoListScreen> createState() => _CryptoListScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
-
+class _CryptoListScreenState extends State<CryptoListScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -58,26 +61,76 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView.separated(
         itemCount: 10,
         separatorBuilder: (context, index) => const Divider(),
-        itemBuilder: (context, i) => ListTile(
-          leading: Image.asset(
-            'assets/images/bitcoin.png',
-            height: 25,
-            width: 25,
-          ),
-          title: Text(
-            "Bitcoins",
-            style: theme.textTheme.bodyMedium,
-          ),
-          subtitle: Text(
-            "2000\$",
-            style: theme.textTheme.bodySmall,
-          ),
-          trailing: const Icon(Icons.arrow_forward_ios),
-        ),
+        itemBuilder: (context, i) {
+          const coinName = 'Bitcoin';
+          return ListTile(
+            leading: Image.asset(
+              'assets/images/bitcoin.png',
+              height: 25,
+              width: 25,
+            ),
+            title: Text(
+              coinName,
+              style: theme.textTheme.bodyMedium,
+            ),
+            subtitle: Text(
+              "2000\$",
+              style: theme.textTheme.bodySmall,
+            ),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                '/coin',
+                arguments: coinName,
+              );
+            },
+          );
+        },
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         child: Container(height: 50.0),
+      ),
+    );
+  }
+}
+
+class CryptoCoinScreen extends StatefulWidget {
+  const CryptoCoinScreen({super.key});
+
+  @override
+  State<CryptoCoinScreen> createState() => _CryptoCoinScreenState();
+}
+
+class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
+  String? coinName;
+
+
+  @override
+  void didChangeDependencies() {
+    //  implement didChangeDependencies  нужно вызвать метод супер у родительского метода - CryptoCoinScreen
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args == null) {
+      //обзательтая проверка на Null - если пользователь ничего не передал
+      print('You must provide args');
+      return;
+    }
+    if (args is! String) {
+      log('You must provide String args');
+      return;
+    }
+    coinName = args;
+    setState(() {
+      
+    });
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(coinName ?? '...'), //проверка на null если разработчик не передал данные то по дефолту будут точки
       ),
     );
   }
