@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:test_app/repositories/crypto_coins/models/crypto_coin.dart';
 
 class CryptoCoinsRepository {
@@ -7,12 +6,12 @@ class CryptoCoinsRepository {
     //асинхронный метод который не известно когда закончится
     final response = await Dio().get(
         'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,BNB&tsyms=USD');
-    final data = response.data as Map<String, dynamic>;
+    final data = response.data as Map<String, dynamic>; //String dynamic - словарь
 
-    final dataList = data.entries.map((e) => CryptoCoin(
+    final cryptoCoinsList = data.entries.map((e) => CryptoCoin( //метод map - прохоидт по всем элементам списка приводя к виду  который мы задали
           name: e.key,
           priceInUSD: (e.value as Map<String, dynamic>)['USD'],
-        )).toList(); //entries  -вернёт всё в виде словаря, метод мар прохоидт по всему списку и что то делает с данными
-      return dataList;
+        )).toList(); //entries  -вернёт всё в виде словаря, 
+      return cryptoCoinsList;
   }
 }

@@ -14,6 +14,7 @@ class CryptoListScreen extends StatefulWidget {
 
 class _CryptoListScreenState extends State<CryptoListScreen> {
 
+  List<Crypto
 
   @override
   Widget build(BuildContext context) {
