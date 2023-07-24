@@ -5,7 +5,7 @@ class CryptoCoinsRepository {
   Future<List<CryptoCoin>> getCoinsList() async {
     //асинхронный метод который не известно когда закончится
     final response = await Dio().get(
-        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB&tsyms=USD');
+        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,AID&tsyms=USD');
     final data =
         response.data as Map<String, dynamic>; //String dynamic - словарь
     final dataRaw = data['RAW'] as Map<String,

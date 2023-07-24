@@ -5,10 +5,11 @@ final darkTheme = ThemeData(
           useMaterial3: true,
           scaffoldBackgroundColor: const Color.fromARGB(255, 31, 31, 31),
           listTileTheme: const ListTileThemeData(
-              iconColor: Color.fromARGB(255, 214, 166, 20)),
+              iconColor: Color.fromARGB(255, 255, 255, 255)),
           appBarTheme: const AppBarTheme(
-              backgroundColor: Color.fromARGB(255, 214, 166, 20),
-              titleTextStyle: TextStyle(color: Colors.black, fontSize: 23)),
+              backgroundColor: Color.fromARGB(255, 31, 31, 31),
+              elevation: 0,
+              titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700)),
           textTheme: const TextTheme(
               bodyMedium: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
