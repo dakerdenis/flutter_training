@@ -17,6 +17,7 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
     final args = ModalRoute.of(context)?.settings.arguments;
     if (args == null) {
       //обзательтая проверка на Null - если пользователь ничего не передал
+      // ignore: avoid_print
       print('You must provide args');
       return;
     }

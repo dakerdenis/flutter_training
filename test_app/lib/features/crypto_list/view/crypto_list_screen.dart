@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:test_app/features/crypto_list/widgets/widgets.dart';
 import 'package:test_app/repositories/crypto_coins/crypto_coins_repository.dart';
 
+import '../../../repositories/crypto_coins/models/crypto_coin.dart';
+
 
 class CryptoListScreen extends StatefulWidget {
   const CryptoListScreen({super.key, required this.title});
@@ -14,7 +16,9 @@ class CryptoListScreen extends StatefulWidget {
 
 class _CryptoListScreenState extends State<CryptoListScreen> {
 
-  List<Crypto
+  List<CryptoCoin>? _cryptoCoinsList;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,9 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
         //  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView.separated(
+      body: (_cryptoCoinsList == null) ? const SizedBox():
+      
+       ListView.separated(
         itemCount: 10,
         separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, i) {
@@ -34,8 +40,9 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.download),
-        onPressed:   (){
-            CryptoCoinsRepository().getCoinsList();
+        onPressed:  () async {
+          _cryptoCoinsList = await  CryptoCoinsRepository().getCoinsList(); //await - дожидаемся пока дарт выполнит внутри себя ассинхронный метод и вернёт что либов нашу переменную
+          setState(() {}); // отвечает за обновление экрана
       }),
 
     );
