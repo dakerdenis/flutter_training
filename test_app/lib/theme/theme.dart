@@ -19,3 +19,4 @@ final darkTheme = ThemeData(
                   color: Color.fromARGB(192, 255, 255, 255),
                   fontWeight: FontWeight.w300,
                   fontSize: 14)));
+              
