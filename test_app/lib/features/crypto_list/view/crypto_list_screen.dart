@@ -35,8 +35,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
         separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, i) {
           final coin = _cryptoCoinsList![i];
-          final coinName = coin.name;
-          return  CryptoCoinTile(coinName: coinName,); //это не константа так как мы поставляем динамическое значение
+          return  CryptoCoinTile(coin: coin,); //это не константа так как мы поставляем динамическое значение
         },
       ),
       floatingActionButton: FloatingActionButton(
