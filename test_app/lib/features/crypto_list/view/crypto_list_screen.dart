@@ -31,11 +31,12 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
       body: (_cryptoCoinsList == null) ? const SizedBox():
       
        ListView.separated(
-        itemCount: 10,
+        itemCount: _cryptoCoinsList!.length, //знак  ! - говорит Dartu что этот список точно не пустой ,не переживай и можем обращаться к нему
         separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, i) {
-          const coinName = 'Bitcoin';
-          return const CryptoCoinTile(coinName: coinName,);
+          final coin = _cryptoCoinsList![i];
+          final coinName = coin.name;
+          return  CryptoCoinTile(coinName: coinName,); //это не константа так как мы поставляем динамическое значение
         },
       ),
       floatingActionButton: FloatingActionButton(
