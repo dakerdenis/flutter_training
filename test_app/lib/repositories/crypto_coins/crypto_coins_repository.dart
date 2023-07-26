@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:test_app/repositories/crypto_coins/abstract_coins_repository.dart';
 import 'package:test_app/repositories/crypto_coins/models/crypto_coin.dart';
 
-class CryptoCoinsRepository {
+class CryptoCoinsRepository implements AbstracktCoinsRepository{
+  @override
   Future<List<CryptoCoin>> getCoinsList() async {
     //асинхронный метод который не известно когда закончится
     final response = await Dio().get(
