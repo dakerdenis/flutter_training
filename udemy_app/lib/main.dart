@@ -1,33 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:udemy_app/main_container/gradient_container.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.amber,
-                Colors.white30,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: const Center(
-            child: Text('Hello World !',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1.5,
-                wordSpacing: 2.0,
-              ),
-            ),
-          ),
-        ),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        body: GradientContainer(),
       ),
     ),
   );
 }
+
