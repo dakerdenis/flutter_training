@@ -3,23 +3,25 @@ import 'package:udemy_app/main_container/styled_text.dart';
 
 const startAlignmen = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
-const colorAmber = Colors.amber;
-const colorWhite30 = Colors.white30;
+
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({
-    super.key,
+  const GradientContainer(
+    this.color1,
+    this.color2,
+     {
+    super.key
   });
+
+  final Color color1;
+  final Color color2;
 
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors:  [
-            colorAmber,
-            colorWhite30,
-          ],
+          colors:  [color1, color2],
           begin: startAlignmen,
           end: endAlignment,
         ),
