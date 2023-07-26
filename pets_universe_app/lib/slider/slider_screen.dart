@@ -22,7 +22,7 @@ class _SliderScreenState extends State<SliderScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Slider Example"),
+        title: const Text("Pets Universe"),
       ),
       body: Column(children: [
         Stack(
@@ -44,7 +44,7 @@ class _SliderScreenState extends State<SliderScreen> {
                 carouselController: carouselController,
                 options: CarouselOptions(
                   scrollPhysics: const BouncingScrollPhysics(),
-                  autoPlay: true,
+                  autoPlay: false,
                   aspectRatio: 2,
                   viewportFraction: 1,
                   onPageChanged: (index, reason) {
@@ -57,7 +57,7 @@ class _SliderScreenState extends State<SliderScreen> {
             ),
             Positioned(
               bottom: 10,
-              left: 0,
+              left: -400,
               right: 0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
