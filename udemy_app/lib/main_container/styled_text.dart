@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class ChangedText extends StatelessWidget {
-  const ChangedText({
-    super.key,
+// ignore: must_be_immutable
+class StyledText extends StatelessWidget {
+  const StyledText(
+    this.text, {
+    super.key
   });
+
+  final String text;
 
   @override
   Widget build(context) {
-    return const Text(
-      'Hello World !',
-      style: TextStyle(
+    return  Text(
+      text,
+      style: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
         letterSpacing: 1.5,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:udemy_app/main_container/styled_text.dart';
 
-var startAlignmen = Alignment.topLeft;
-var endAlignment = Alignment.bottomRight;
-var colorAmber = Colors.amber;
-var colorWhite30 = Colors.white30;
+const startAlignmen = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
+const colorAmber = Colors.amber;
+const colorWhite30 = Colors.white30;
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
@@ -14,7 +14,7 @@ class GradientContainer extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors:  [
             colorAmber,
@@ -25,7 +25,7 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: const Center(
-        child: ChangedText(),
+        child: StyledText('Stalker'),
       ),
     );
   }
