@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udemy_app/main_container/dice_roller.dart';
 import 'package:udemy_app/main_container/styled_text.dart';
 
 const startAlignmen = Alignment.topLeft;
@@ -7,19 +8,13 @@ const endAlignment = Alignment.bottomRight;
 class GradientContainer extends StatelessWidget {
   const GradientContainer(this.color1, this.color2, {super.key});
 
-GradientContainer.purple({super.key})
+const GradientContainer.purple({super.key})
   : color1 = Colors.amber,
     color2 = Colors.white30;
     
   final Color color1;
   final Color color2;
 
-  var activeDiceImage = 'assets/images/dice-2.png';
-
-  void rollDice(){
-    activeDiceImage = 'assets/images/dice-4.png';
-    print('Button pressed');
-  }
 
   @override
   Widget build(context) {
@@ -31,29 +26,9 @@ GradientContainer.purple({super.key})
           end: endAlignment,
         ),
       ),
+      // ignore: prefer_const_constructors
       child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            activeDiceImage,
-            width: 200,
-          ),
-          const SizedBox(height: 20,),
-          TextButton(
-            onPressed: rollDice,
-            style: TextButton.styleFrom(
-              // padding: const EdgeInsets.only(top: 20,),
-              foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-              textStyle: const TextStyle(
-                fontSize: 28
-              )
-            ),
-            child: const Text('Roll Dice'),
-
-          ),
-        ],
-      )
+          child: const DiceRoller(),
           // child: StyledText('Stalker'),
 
           ),
