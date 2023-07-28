@@ -11,14 +11,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 74, 4, 114),
+        backgroundColor: const Color.fromARGB(255, 74, 4, 114),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('assets/images/quiz-logo.png',
                   width: 200, height: 200),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               const Text(
                 'Hello, Flutter!',
                 style: TextStyle(
@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
               ),
                const SizedBox(height: 10),
               Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(),
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(),
                 child: ElevatedButton(
                   onPressed: () {
                     // ignore: avoid_print
