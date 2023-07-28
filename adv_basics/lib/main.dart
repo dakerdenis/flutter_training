@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
             children: [
               Image.asset('assets/images/quiz-logo.png',
                   width: 200, height: 200),
-              SizedBox(height: 20),
+              SizedBox(height: 40),
               const Text(
                 'Hello, Flutter!',
                 style: TextStyle(
@@ -26,12 +26,15 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              
+               const SizedBox(height: 10),
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // ignore: avoid_print
+                    print('Button Pressed');
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color.fromARGB(0, 255, 255, 255),
                     onPrimary: Colors.white,
