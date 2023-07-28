@@ -26,18 +26,31 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white, width: 1
+              
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(0, 255, 255, 255),
+                    onPrimary: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          8), // Border radius for the button
                     ),
-                    borderRadius: BorderRadius.circular(5),
                   ),
-                  child: ElevatedButton(
-                    on
+                  child: const Text(
+                    'Start Quiz',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                )
+                ),
+              )
             ],
           ),
         ),
