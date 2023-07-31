@@ -14,7 +14,7 @@ class StartScreen extends StatelessWidget {
         children: [
           Image.asset('assets/images/quiz-logo.png',
               width: 200, height: 200),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           const Text(
             'Hello, Flutter!',
             style: TextStyle(
@@ -24,16 +24,16 @@ class StartScreen extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(),
+            padding: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(),
             child: ElevatedButton(
               onPressed: () {
                 // ignore: avoid_print
                 print('Button Pressed');
               },
               style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(0, 255, 255, 255),
-                onPrimary: Colors.white,
+                foregroundColor: Colors.white,
+                 backgroundColor: const Color.fromARGB(0, 255, 255, 255),
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20, vertical: 10),
                 shape: RoundedRectangleBorder(
