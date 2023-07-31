@@ -18,10 +18,10 @@ class StartScreen extends StatelessWidget {
           //  ),
           Image.asset(
             'assets/images/quiz-logo.png',
-             width: 200, 
-             height: 200,
-             color: Color.fromARGB(146, 255, 255, 255),
-             ),
+            width: 200,
+            height: 200,
+            color: const  Color.fromARGB(146, 255, 255, 255),
+          ),
           const SizedBox(height: 40),
           const Text(
             'Hello, Flutter!',
