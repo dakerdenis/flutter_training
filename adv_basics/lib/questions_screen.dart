@@ -1,3 +1,4 @@
+import 'package:adv_basics/buttons/answer_button.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -12,31 +13,28 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return SizedBox(
+    return const SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('The question...'),
-          const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text("Answer 1"),
+          Text(
+            'The question...',
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text("Answer 2"),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text("Answer 3"),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text("Answer 4"),
-          ),
+          SizedBox(height: 30),
+          AnswerButton(),
+          SizedBox(height: 15),
+          AnswerButton(),
+          SizedBox(height: 15),
+          AnswerButton(),
+          SizedBox(height: 15),
+          AnswerButton(),
         ],
       ),
     );
   }
 }
+
