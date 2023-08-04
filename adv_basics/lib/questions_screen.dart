@@ -13,25 +13,25 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return const SizedBox(
+    return  SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'The question...',
             style: TextStyle(
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 30),
-          AnswerButton(answerText: 'Pizda', onTap: (){},),
-          SizedBox(height: 15),
-          AnswerButton(),
-          SizedBox(height: 15),
-          AnswerButton(),
-          SizedBox(height: 15),
-          AnswerButton(),
+          const SizedBox(height: 30),
+          AnswerButton(answerText: 'Pizda 1', onTap: (){},),
+          const SizedBox(height: 15),
+          AnswerButton(answerText: 'Pizda 2', onTap: (){},),
+          const SizedBox(height: 15),
+          AnswerButton(answerText: 'Pizda 3', onTap: (){},),
+          const SizedBox(height: 15),
+          AnswerButton(answerText: 'Pizda 4', onTap: (){},),
         ],
       ),
     );
