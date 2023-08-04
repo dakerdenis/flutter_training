@@ -3,6 +3,8 @@ import 'package:adv_basics/start_screen.dart';
 import 'package:flutter/material.dart';
 
 class Quiz extends StatefulWidget{
+  const Quiz({super.key});
+
   @override
   // ignore: no_logic_in_create_state
   State<StatefulWidget> createState() {
@@ -31,7 +33,7 @@ class _QuizState extends State<Quiz>{
 
     return  MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 74, 4, 114),
+        backgroundColor: const Color.fromARGB(255, 74, 4, 114),
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
