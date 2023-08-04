@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:udemy_app/main_container/dice_roller.dart';
-import 'package:udemy_app/main_container/styled_text.dart';
 
 const startAlignmen = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
