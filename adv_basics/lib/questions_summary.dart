@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class QuestionsSummary extends StatelessWidget {
@@ -15,6 +14,7 @@ class QuestionsSummary extends StatelessWidget {
             (data) {
               return Row(
                 children: [
+                  //! EBANIY TEXT V CIRCLE
                   Container(
                     height: 30,
                     width: 30,
@@ -23,6 +23,7 @@ class QuestionsSummary extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           ((data['question_index'] as int) + 1).toString(),
@@ -33,6 +34,8 @@ class QuestionsSummary extends StatelessWidget {
                   const SizedBox(
                     width: 30,
                   ),
+
+                  //! QUESTIONS AND ANSWERS
                   Expanded(
                     child: Column(
                       children: [
