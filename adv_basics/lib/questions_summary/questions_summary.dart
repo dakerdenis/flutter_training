@@ -6,16 +6,25 @@ class QuestionsSummary extends StatelessWidget {
   final List<Map<String, Object>> summaryData;
   @override
   Widget build(BuildContext context) {
+
+
+
+
+
     return SizedBox(
       height: 300,
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map(
             (data) {
+
+
+
               //? ROW EBANIY
               return Column(
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start, // Align children to the top
                     children: [
                       //! EBANIY TEXT V CIRCLE
                       Container(
@@ -23,7 +32,9 @@ class QuestionsSummary extends StatelessWidget {
                         width: 30,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.blue,
+                          color: Colors.amber,
+
+                         
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,34 +49,46 @@ class QuestionsSummary extends StatelessWidget {
                           ],
                         ),
                       ),
-                      //! SPACE BETWEEN 
+                      //! SPACE BETWEEN
                       const SizedBox(
                         width: 30,
                       ),
 
                       //! QUESTIONS AND ANSWERS
                       Expanded(
-                        child: Container(
-                          color: Colors.green,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start, // Align children to the left
-                            children: [
-                              //! QUESTION
-                              Text(data['question'] as String),
-                              const SizedBox(
-                                height: 5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment
+                              .start, // Align children to the left
+                          children: [
+                            //! QUESTION
+                            Text(
+                              data['question'] as String,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 240, 209, 255),
+                                fontWeight: FontWeight.w500,
                               ),
-                              //!USER ANSWER
-                              Text(data['user_answer'] as String),
-                              //!CORRECT ANSWER
-                              Text(data['correct_answer'] as String),
-                            ],
-                          ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            //!USER ANSWER
+                            Text(data['user_answer'] as String,
+                            style: const TextStyle(
+                              color: Color.fromARGB(174, 230, 180, 255),
+                            ),),
+                            //!CORRECT ANSWER
+                            Text(data['correct_answer'] as String,
+                            style: const TextStyle(
+                              color: Color.fromARGB(181, 165, 255, 225),
+                            ),),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20,)
+                  const SizedBox(
+                    height: 20,
+                  )
                 ],
               );
             },

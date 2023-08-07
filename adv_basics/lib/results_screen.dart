@@ -37,6 +37,9 @@ class ResultsScreen extends StatelessWidget {
     }).length;
     //instead of map method where() will not change any lists
 
+
+
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -60,7 +63,12 @@ class ResultsScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {},
-              child: const Text('Restart quiz'),
+              child: const Row(
+                children: [
+                  Text('Restart quiz'),
+                  Icon( Icons.replay, ),
+                ],
+              ),
             )
           ],
         ),
