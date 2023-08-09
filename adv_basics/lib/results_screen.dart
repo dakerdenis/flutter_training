@@ -1,7 +1,7 @@
 import 'package:adv_basics/data/questions.dart';
 
 import 'package:flutter/material.dart';
-import 'package:adv_basics/questions_summary.dart';
+import 'package:adv_basics/questions_summary/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
@@ -62,7 +62,9 @@ class ResultsScreen extends StatelessWidget {
               height: 30,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+
+              },
               child: const Row(
                 children: [
                   Text('Restart quiz'),
