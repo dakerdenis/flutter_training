@@ -7,9 +7,13 @@ class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
     super.key,
     required this.chooseAnswer,
+    required this.onRestart
   });
 
+  final void Function() onRestart;
   final List<String> chooseAnswer;
+
+
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -61,16 +65,14 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            TextButton(
-              onPressed: () {
-
-              },
-              child: const Row(
-                children: [
-                  Text('Restart quiz'),
-                  Icon( Icons.replay, ),
-                ],
+            TextButton.icon(
+              onPressed:  onRestart, 
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
               ),
+              icon: const Icon(Icons.refresh),
+              label: const Text("Restart quiz !"),
+
             )
           ],
         ),
