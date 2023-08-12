@@ -14,7 +14,7 @@ class Quiz extends StatefulWidget {
   }
 }
 
-class _QuizState extends State<Quiz> {
+class _QuizState extends State<Quiz> { //_class - this means that class private and could be used only inside this file
   List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
 
