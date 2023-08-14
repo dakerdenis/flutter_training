@@ -1,11 +1,9 @@
-
 import 'package:adv_basics/questions_summary/question_identifier.dart';
 import 'package:flutter/material.dart';
 
 class SummaryItem extends StatelessWidget {
   const SummaryItem(
-    this.itemData,
-    {
+    this.itemData, {
     super.key,
   });
 
@@ -13,14 +11,17 @@ class SummaryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isCorrectAnswer = itemData['user_answer'] == itemData['correct_answer'];
+    final isCorrectAnswer =
+        itemData['user_answer'] == itemData['correct_answer'];
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start, // Align children to the top
       children: [
         //! EBANIY TEXT V CIRCLE
-         QuestionIdentifier(isCOrrectAnswer: isCorrectAnswer,
-         questionIndex: itemData['question_index'] as int,),
+        QuestionIdentifier(
+          isCOrrectAnswer: isCorrectAnswer,
+          questionIndex: itemData['question_index'] as int,
+        ),
         //! SPACE BETWEEN
         const SizedBox(
           width: 30,
@@ -29,8 +30,8 @@ class SummaryItem extends StatelessWidget {
         //! QUESTIONS AND ANSWERS
         Expanded(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment
-                .start, // Align children to the left
+            crossAxisAlignment:
+                CrossAxisAlignment.start, // Align children to the left
             children: [
               //! QUESTION
               Text(
@@ -44,15 +45,19 @@ class SummaryItem extends StatelessWidget {
                 height: 5,
               ),
               //!USER ANSWER
-              Text(itemData['question'] as String,
-              style: const TextStyle(
-                color: Color.fromARGB(174, 230, 180, 255),
-              ),),
+              Text(
+                itemData['question'] as String,
+                style: const TextStyle(
+                  color: Color.fromARGB(174, 230, 180, 255),
+                ),
+              ),
               //!CORRECT ANSWER
-              Text(itemData['correct_answer'] as String,
-              style: const TextStyle(
-                color: Color.fromARGB(181, 165, 255, 225),
-              ),),
+              Text(
+                itemData['correct_answer'] as String,
+                style: const TextStyle(
+                  color: Color.fromARGB(181, 165, 255, 225),
+                ),
+              ),
             ],
           ),
         ),
