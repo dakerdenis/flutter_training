@@ -28,9 +28,10 @@ class ExpenseItem extends StatelessWidget {
                  // take all free space between 2 other widgets                
                 Row(
                   children: [
-                    const Icon(Icons.alarm),
+                    Icon(categoryIcons[expense.category]),
                     const SizedBox(width: 8,),
-                    Text(expense.date.toString()),
+                    Text(expense.formattedDate),
+                    
                   ],
                 ),
               ],
