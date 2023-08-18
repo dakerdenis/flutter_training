@@ -104,6 +104,7 @@ class _NewExpenseState extends State<NewExpense> {
           Row(
             children: [
               DropdownButton(
+                  value: _selectedCategory,
                   items: Category.values
                       .map(
                         (category) => DropdownMenuItem(
@@ -120,6 +121,7 @@ class _NewExpenseState extends State<NewExpense> {
                       _selectedCategory = value;
                     });
                   }),
+              const Spacer(),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
