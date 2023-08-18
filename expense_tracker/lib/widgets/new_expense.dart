@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+final formatter = DateFormat.yMd();
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key});
@@ -25,6 +28,7 @@ class _NewExpenseState extends State<NewExpense> {
   //should dispose all textediting controller
   final _titleController = TextEditingController();
   final _priceCOntroller = TextEditingController();
+  DateTime? _selectedDate;
 
   @override
   void dispose() {
@@ -33,8 +37,20 @@ class _NewExpenseState extends State<NewExpense> {
     super.dispose();
   }
 
-  void resetData(){
-
+  void _presentDatePicker() async {
+    //!added async awai coudn't be used inside widget build, as it future value
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year - 1, now.month, now.day);
+    //! AWAIT tells flutter that it'll be available in future
+    final pickedDate = await showDatePicker(
+        context: context,
+        initialDate: now,
+        firstDate: firstDate,
+        lastDate: now);
+    //! This line will work only after  AWAIT
+    setState(() {
+      _selectedDate = pickedDate;
+    });
   }
 
   @override
@@ -51,19 +67,48 @@ class _NewExpenseState extends State<NewExpense> {
               label: Text('Title'),
             ),
           ),
-          TextField(
-            controller: _priceCOntroller,
-            maxLength: 10,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              label: Text('Price'),
+          Row(children: [
+            Expanded(
+              child: TextField(
+                controller: _priceCOntroller,
+                maxLength: 10,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  prefixText: '\$',
+                  label: Text('Price'),
+                ),
+              ),
             ),
-          ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(_selectedDate == null
+                      ? 'No date selected'
+                      : formatter.format(_selectedDate!)),
+//! Exclamation mark tells Flutter that value that could be null, will never be a null
+                  IconButton(
+                    onPressed: _presentDatePicker,
+                    icon: const Icon(
+                      Icons.calendar_month,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ]),
           Row(
             children: [
-              const SizedBox(
-                height: 30,
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  //removes overlay from the screen
+                },
+                child: const Text('reset'),
               ),
+              const Spacer(),
               ElevatedButton(
                 onPressed: () {
                   // ignore: avoid_print
@@ -73,14 +118,6 @@ class _NewExpenseState extends State<NewExpense> {
                 },
                 child: const Text('Save Expense'),
               ),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: () {
-                  _titleController.clear();
-                  _priceCOntroller.clear();
-                },
-                child: const Text('reset'),
-              )
             ],
           )
         ],
