@@ -32,8 +32,32 @@ class _NewExpenseState extends State<NewExpense> {
   DateTime? _selectedDate;
   Category _selectedCategory = Category.leisure;
 
-
-  void _submitExpenseData(){}
+  void _submitExpenseData() {
+    final enteredAmount = double.tryParse(_priceCOntroller.text);
+    //tryParse('hello)=> null, tryParsel('1.12')=>12
+    //!tryParse
+    final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
+    if (_titleController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        _selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Invalid input'),
+          content: const Text('Please make sure a valid data entered'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text('Okay'),
+            )
+          ],
+        ),
+      );
+      return;
+    }
+  }
 
   @override
   void dispose() {
