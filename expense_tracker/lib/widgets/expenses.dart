@@ -48,7 +48,7 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpenses.remove(expense);
     });
-    ScaffoldMessenger.of(context).
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -85,3 +85,4 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 }
+
