@@ -29,20 +29,24 @@ class _ExpensesState extends State<Expenses> {
     ),
   ];
 
-  void _openAddExpenseOverlay(){
+  void _openAddExpenseOverlay() {
     showModalBottomSheet(
-      isScrollControlled: true,
-      context: context, builder: (ctx){
-      return  NewExpense(onAddExpense: _addExpense);
+        isScrollControlled: true,
+        context: context,
+        builder: (ctx) {
+          return NewExpense(onAddExpense: _addExpense);
+        });
+  }
+
+  void _addExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.add(expense);
     });
   }
 
-
-
-
-  void _addExpense(Expense expense){
+  void _removeExpense(Expense expense) {
     setState(() {
-      _registeredExpenses.add(expense);
+      _registeredExpenses.remove(expense);
     });
   }
 
@@ -50,7 +54,8 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [          //list of widgets in appBar
+        actions: [
+          //list of widgets in appBar
           IconButton(
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
@@ -61,7 +66,10 @@ class _ExpensesState extends State<Expenses> {
         children: [
           const Text('The chart'),
           Expanded(
-            child: ExpensesList(expenses: _registeredExpenses),
+            child: ExpensesList(
+              expenses: _registeredExpenses,
+              onRemoveExpense: _removeExpense,
+            ),
           ),
         ],
       ),
