@@ -48,10 +48,22 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpenses.remove(expense);
     });
+    ScaffoldMessenger.of(context).
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget maincontent = const Center(
+      child: Text('No expenses found. Start adding some!'),
+    );
+
+    if (_registeredExpenses.isNotEmpty){
+      maincontent = ExpensesList(
+              expenses: _registeredExpenses,
+              onRemoveExpense: _removeExpense,
+            );
+    }
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -66,10 +78,7 @@ class _ExpensesState extends State<Expenses> {
         children: [
           const Text('The chart'),
           Expanded(
-            child: ExpensesList(
-              expenses: _registeredExpenses,
-              onRemoveExpense: _removeExpense,
-            ),
+            child: maincontent,
           ),
         ],
       ),
