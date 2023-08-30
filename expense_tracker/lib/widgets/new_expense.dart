@@ -29,6 +29,7 @@ class _NewExpenseState extends State<NewExpense> {
   //only "state" classes can implement this dispose method (StatelessWidget can't)
   // That's why you should use a StatefulWidget here
   //should dispose all textediting controller
+
   final _titleController = TextEditingController();
   final _priceCOntroller = TextEditingController();
   DateTime? _selectedDate;
@@ -177,3 +178,5 @@ class _NewExpenseState extends State<NewExpense> {
     );
   }
 }
+
+

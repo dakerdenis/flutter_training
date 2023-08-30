@@ -14,6 +14,7 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
+  //! - тут записанны тестовые данные
   final List<Expense> _registeredExpenses = [
     Expense(
       title: 'Flutter course',
@@ -28,7 +29,7 @@ class _ExpensesState extends State<Expenses> {
       category: Category.leisure,
     ),
   ];
-
+  //! - открытие модального окна на весь экран
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -37,13 +38,13 @@ class _ExpensesState extends State<Expenses> {
           return NewExpense(onAddExpense: _addExpense);
         });
   }
-
+//! - добавление элемента в список
   void _addExpense(Expense expense) {
     setState(() {
       _registeredExpenses.add(expense);
     });
   }
-
+  //! - удаление элемента из списка
   void _removeExpense(Expense expense) {
     final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(() {
@@ -51,6 +52,7 @@ class _ExpensesState extends State<Expenses> {
     });
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
+      //! после удаления выплывает данное окно - где в течении 3х секунд есть опция отменить действие
        SnackBar(
         duration: const Duration(seconds: 3),
         content: const Text('Expence deleted.'),
@@ -58,6 +60,7 @@ class _ExpensesState extends State<Expenses> {
           label: 'Undo',
           onPressed: () {
             setState(() {
+              //! - вставить обратно элемент
               _registeredExpenses.insert(expenseIndex, expense);
             });
           },
@@ -68,6 +71,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    //! тут проверка на наличие контента - если есть или нету
+    //? - maincontent - прописывается - основной экран если одно либо другое
     Widget maincontent = const Center(
       child: Text('No expenses found. Start adding some!'),
     );
@@ -78,14 +83,16 @@ class _ExpensesState extends State<Expenses> {
         onRemoveExpense: _removeExpense,
       );
     }
-
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Flutter Expense Tracker'),
         actions: [
           //list of widgets in appBar
           IconButton(
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
+            color: Colors.white,
+            iconSize:  36.0,
           ),
         ],
       ),
@@ -100,3 +107,5 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 }
+
+
