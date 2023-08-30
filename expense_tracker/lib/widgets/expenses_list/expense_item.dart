@@ -8,30 +8,32 @@ class ExpenseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 16,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
+            Text(
+              expense.title,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: 4),
             Row(
               children: [
-                Text(
-                 '\$${expense.amount.toStringAsFixed(2)}'
-                ),
+                Text('\$${expense.amount.toStringAsFixed(2)}'),
                 const Spacer(),
-                 // space - simple widget to tell flutter that it'll
-                 // take all free space between 2 other widgets                
+                // space - simple widget to tell flutter that it'll
+                // take all free space between 2 other widgets
                 Row(
                   children: [
                     Icon(categoryIcons[expense.category]),
-                    const SizedBox(width: 8,),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Text(expense.formattedDate),
-                    
                   ],
                 ),
               ],
