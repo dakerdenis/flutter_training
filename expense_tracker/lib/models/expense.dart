@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:intl/intl.dart';
 
-final formatter =  DateFormat.yMd();
+final formatter = DateFormat.yMd();
 
 const uuid = Uuid();
 
 enum Category { food, travel, leisure, work }
+
 //kind of string type values
 const categoryIcons = {
   Category.food: Icons.lunch_dining,
   Category.travel: Icons.flight_takeoff,
   Category.leisure: Icons.movie,
-  Category.work: Icons.work,  
+  Category.work: Icons.work,
 };
 
 class Expense {
@@ -29,12 +30,18 @@ class Expense {
   final DateTime date;
   final Category category;
 
-  String get formattedDate{
+  String get formattedDate {
     return formatter.format(date);
   }
 }
 
-
 class ExpenseBucket {
+  const ExpenseBucket({
+    required this.category,
+    required this.expenses,
+  });
   final Category category;
+  final List<Expense> expenses;
+
+  
 }
