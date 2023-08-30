@@ -33,3 +33,8 @@ class Expense {
     return formatter.format(date);
   }
 }
+
+
+class ExpenseBucket {
+  final Category category;
+}
