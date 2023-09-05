@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData().copyWith(
         useMaterial3: true,
         colorScheme: kColorScheme,
+        
       ),
       title: 'Pets universe',
       home: const Home(),

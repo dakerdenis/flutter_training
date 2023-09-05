@@ -14,7 +14,6 @@ class _LoginState extends State<Login> {
   void _handleLinkTap() {
     //Handle the Link tap action
     print('Link Tapped !');
-
   }
 
   @override
@@ -22,18 +21,52 @@ class _LoginState extends State<Login> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        //!-------TOP BUTTON WHICH CLOSES LOGIN WIDGET
         Row(
           children: [
-            ElevatedButton(onPressed: () {Navigator.of(context).pop();}, child: const Text('stalker')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('stalker')),
           ],
         ),
-        Container(
+        //!------CENTER IMAGE OF LOGO AND DOG
+        SizedBox(
             width: 200,
-            height: 200,
-            color: Colors.black12,
-            child:const Row(
-              children: [],
+            height: 150,
+            child: Center(
+              child: Image.asset(
+                'assets/323.png',
+                width: 128,
+                height: 134,
+                fit: BoxFit.cover,
+              ),
             )),
+
+        ///!-------EMAIL ADRESSS
+        Container(
+          width: double.infinity,
+          height: 52,
+          child: FractionallySizedBox(
+            widthFactor: 0.8,
+            heightFactor: 1,
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 0),
+                gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Color.fromRGBO(142, 36, 170, 1),
+                      Color.fromRGBO(255, 235, 59, 1),
+                    ]),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+            ),
+          ),
+        ),
+        //!----------BOTTOM CONTAINER WITH REGISTRATION LINK
         Container(
           width: double.infinity,
           height: 60.0,
