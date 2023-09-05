@@ -10,7 +10,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _logincontroller = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,23 @@ class _LoginState extends State<Login> {
           height: 200,
           color: Colors.black12,
           child: Row(children: [],)
+        ),
+        Container(
+          width: double.infinity,
+          height: 50.0,
+          
+          decoration:  BoxDecoration(
+            color: Colors.blue[200],
+            borderRadius:const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )
+          ),
+          child: const Center(
+            child: Text(
+              'Don’t have an account? Create one.',
+            ),
+          )
         )
 
         //  //! картинка
