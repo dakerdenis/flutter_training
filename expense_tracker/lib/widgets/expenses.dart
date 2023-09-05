@@ -39,12 +39,14 @@ class _ExpensesState extends State<Expenses> {
           return NewExpense(onAddExpense: _addExpense);
         });
   }
+
 //! - добавление элемента в список
   void _addExpense(Expense expense) {
     setState(() {
       _registeredExpenses.add(expense);
     });
   }
+
   //! - удаление элемента из списка
   void _removeExpense(Expense expense) {
     final expenseIndex = _registeredExpenses.indexOf(expense);
@@ -54,7 +56,7 @@ class _ExpensesState extends State<Expenses> {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       //! после удаления выплывает данное окно - где в течении 3х секунд есть опция отменить действие
-       SnackBar(
+      SnackBar(
         duration: const Duration(seconds: 3),
         content: const Text('Expence deleted.'),
         action: SnackBarAction(
@@ -72,6 +74,7 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     //! тут проверка на наличие контента - если есть или нету
     //? - maincontent - прописывается - основной экран если одно либо другое
     Widget maincontent = const Center(
@@ -93,20 +96,25 @@ class _ExpensesState extends State<Expenses> {
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
             color: Colors.white,
-            iconSize:  36.0,
+            iconSize: 36.0,
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Chart(expenses: _registeredExpenses),
-          Expanded(
-            child: maincontent,
-          ),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: maincontent,
+                ),
+              ],
+            )
+          : Row(children: [
+              Expanded(child: Chart(expenses: _registeredExpenses),),
+              Expanded(
+                child: maincontent,
+              ),
+            ]),
     );
   }
 }
-
-
