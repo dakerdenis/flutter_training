@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -15,6 +17,15 @@ class _LoginState extends State<Login> {
     //Handle the Link tap action
     print('Link Tapped !');
   }
+  void _loginContainer(){
+       Navigator.push(context, MaterialPageRoute(builder:(BuildContext context)=>Home()));
+  }
+
+  void _onContainerTapped() {
+    // Define the function to execute when the container is tapped
+    Navigator.pop(context);
+    // You can add your custom logic here
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +35,30 @@ class _LoginState extends State<Login> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //!-------TOP BUTTON WHICH CLOSES LOGIN WIDGET
+          const SizedBox(
+            height: 20,
+          ),
           Row(
             children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('')),
+              const SizedBox(
+                width: 20,
+              ),
+              GestureDetector(
+                onTap: _onContainerTapped,
+                child: Container(
+                  width: 40.0, // Set the desired width
+                  height: 40.0, // Set the desired height
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle, // Circular shape
+                    color: Color.fromARGB(
+                        255, 0, 0, 0), // Background color of the circle
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                        'assets/Arrow.png'), // Replace with your image path
+                  ),
+                ),
+              ),
             ],
           ),
           //!------CENTER IMAGE OF LOGO AND DOG
@@ -98,6 +126,8 @@ class _LoginState extends State<Login> {
           SizedBox(
             width: double.infinity,
             height: 50,
+           child: GestureDetector(
+            onTap: _loginContainer,
             child: FractionallySizedBox(
               widthFactor: 0.8,
               heightFactor: 1,
@@ -121,6 +151,8 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            ),
+
           ),
 
           ///!--------or with -- container
@@ -277,9 +309,10 @@ class _LoginState extends State<Login> {
               ),
             ),
           )
-
         ],
       ),
     );
   }
 }
+
+
