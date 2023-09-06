@@ -52,8 +52,10 @@ class _LoginState extends State<Login> {
             widthFactor: 0.8,
             heightFactor: 1,
             child: Container(
+
               decoration: BoxDecoration(
-                border: Border.all(width: 0),
+
+                borderRadius: BorderRadius.circular(5.0),
                 gradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomLeft,
@@ -61,7 +63,14 @@ class _LoginState extends State<Login> {
                       Color.fromRGBO(142, 36, 170, 1),
                       Color.fromRGBO(255, 235, 59, 1),
                     ]),
-                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child:  FractionallySizedBox(
+                widthFactor: 0.98,
+                heightFactor: 0.98,
+                child:  Container(
+                  color: Colors.white,
+
+                ),
               ),
             ),
           ),
