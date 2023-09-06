@@ -40,8 +40,8 @@ class _SliderMainState extends State<SliderMain> {
         // Pagination dot settings
         scrollDirection:
             Axis.horizontal, // Scroll direction (horizontal or vertical)
-        autoPlayInterval: Duration(seconds: 3), // Auto play interval (optional)
-        autoPlayAnimationDuration: Duration(
+        autoPlayInterval: const Duration(seconds: 3), // Auto play interval (optional)
+        autoPlayAnimationDuration: const Duration(
             milliseconds: 800), // Auto play animation duration (optional)
         autoPlayCurve:
             Curves.fastOutSlowIn, // Animation curve for auto play (optional)
