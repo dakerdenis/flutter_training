@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text('stalker')),
+                  child: const Text('')),
             ],
           ),
           //!------CENTER IMAGE OF LOGO AND DOG
@@ -135,11 +135,11 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 116,
+                    width: 120,
                     height: 1,
                     color: Colors.black,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   const Text(
@@ -149,11 +149,11 @@ class _LoginState extends State<Login> {
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Container(
-                    width: 116,
+                    width: 120,
                     height: 1,
                     color: Colors.black,
                   ),
@@ -174,18 +174,72 @@ class _LoginState extends State<Login> {
                   color: const Color.fromRGBO(24, 119, 242, 1),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Row(
+                padding: const EdgeInsets.all(10),
+                child: Stack(
                   children: [
-                    SizedBox(
-                      width: 30,
-                      height: 30,
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      width: MediaQuery.of(context).size.width * 0.2,
                       child: Image.asset(
                         'assets/facebook.png',
                         width: 30,
                         height: 30,
-                        fit: BoxFit.cover,
                       ),
-                    )
+                    ),
+                    const Center(
+                      child: Text(
+                        'Login with Facebook',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          ///!------GOOGLE container
+          SizedBox(
+            width: double.infinity,
+            height: 60,
+            child: FractionallySizedBox(
+              widthFactor: 0.8,
+              heightFactor: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  border: Border.all(
+                    color: const Color.fromRGBO(0, 0, 0, 0.6),
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      child: Image.asset(
+                        'assets/Google.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                    ),
+                    const Center(
+                      child: Text(
+                        'Login with Google',
+                        style: TextStyle(
+                          color: Color.fromRGBO(0, 0, 0, 0.6),
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -224,26 +278,6 @@ class _LoginState extends State<Login> {
             ),
           )
 
-          //  //! картинка
-          //  AspectRatio(
-          //    aspectRatio: 1.0,
-          //    child: Center(
-          //      child: Image.asset(
-          //        height: 100,
-          //        'assets/123.jpg',
-          //        fit: BoxFit.contain,
-          //      ),
-          //    ),
-          //  ),
-          //  //! ввод данных
-          //  TextField(
-          //    controller: _logincontroller,
-          //    maxLength: 40,
-          //    keyboardType: TextInputType.text,
-          //    decoration: const InputDecoration(
-          //      label: Text('Title'),
-          //    ),
-          //  )
         ],
       ),
     );

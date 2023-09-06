@@ -63,6 +63,7 @@ flutter:
     - assets/123.jpg
     - assets/323.png
     - assets/facebook.png
+    - assets/Google.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
