@@ -106,11 +106,12 @@ class _LoginState extends State<Login> {
                   color: const Color.fromRGBO(255, 247, 0, 1),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child:  const Row(
+                child: const Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Continue',
+                    Text(
+                      'Continue',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -121,6 +122,43 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
+
+          ///!--------or with -- container
+          SizedBox(
+            width: double.infinity,
+            height: 50,
+            child: FractionallySizedBox(
+              widthFactor: 0.8,
+              heightFactor: 1,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 116,
+                    height: 1,
+                    color: Colors.black,
+
+                  ),
+                  SizedBox(width: 10,),
+                  const Text(
+                    'Or With',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Container(
+                    width: 116,
+                    height: 1,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+            ),
+          ),
+
           //!----------BOTTOM CONTAINER WITH REGISTRATION LINK
           Container(
             width: double.infinity,
