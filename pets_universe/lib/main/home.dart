@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_universe/main/buttons/mybutton.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,28 +17,29 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-
-        padding: const EdgeInsets.only(top: 40, bottom: 50),
+        padding: EdgeInsets.only(top: 40, bottom: 50),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             //!-----TEXT NAME
-            const SizedBox(
+            SizedBox(
               child: Column(
                 children: [
                   Text(
                     'Pets Universe',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w600),
+                    style: GoogleFonts.brawler(
+
+                      color: Colors.black,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
-                  Text(
+                   Text(
                     'The easiest way to the  best care !',
-                    style: TextStyle(
+                    style: GoogleFonts.brawler(
                         color: Colors.black,
                         fontSize: 16,
-                        fontWeight: FontWeight.w400),
+                        fontWeight: FontWeight.w500),
                   )
                 ],
               ),
@@ -85,12 +88,12 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
-                      right: 30.0,
+                      bottom: MediaQuery.of(context).size.height * -0.25,
+                      right: -120.0,
                       child: Transform.rotate(
                           angle: 0 * 3.1415927 / 180,
                           child: Transform.scale(
-                            scale: 1.1,
+                            scale: 0.5,
                             child: Image.asset(
                               'assets/cat1.png',
                             ),
@@ -98,13 +101,13 @@ class _HomeState extends State<Home> {
                     ),
                     Positioned(
                       bottom: MediaQuery.of(context).size.height * 0.27,
-                      right:  MediaQuery.of(context).size.height * 0.065,
+                      right: MediaQuery.of(context).size.height * 0.065,
                       child: Transform.rotate(
                           angle: 0 * 3.1415927 / 180,
                           child: Transform.scale(
                             scale: 1,
-                            child: Image.asset(
-                              'assets/cloud.png',
+                            child: SvgPicture.asset(
+                              'assets/cloud.svg',
                             ),
                           )),
                     ),

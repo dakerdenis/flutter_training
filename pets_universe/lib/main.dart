@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_universe/main/home.dart';
 
+
 var kColorScheme = ColorScheme.fromSeed(seedColor: const Color.fromRGBO(255, 255, 255, 1));
 var kDarkColorScheme = ColorScheme.fromSeed(brightness: Brightness.dark, seedColor: const Color.fromARGB(255, 5, 99, 125));
 

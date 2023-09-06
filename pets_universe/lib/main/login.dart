@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'home.dart';
 
 class Login extends StatefulWidget {
@@ -66,11 +67,11 @@ class _LoginState extends State<Login> {
               width: 200,
               height: 150,
               child: Center(
-                child: Image.asset(
-                  'assets/323.png',
+                child: SvgPicture.asset(
+                  'assets/323.svg',
                   width: 128,
                   height: 134,
-                  fit: BoxFit.cover,
+
                 ),
               )),
 
@@ -102,13 +103,13 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.circular(10.0),
                       color: Colors.white,
                     ),
-                    child: const Column(
+                    child:  Column(
                       children: [
                         Row(
                           children: [
                             Text(
                               'Enter your email:',
-                              style: TextStyle(
+                              style: GoogleFonts.brawler(
                                 color: Color.fromRGBO(95, 95, 95, 1),
                                 fontSize: 10,
                               ),
@@ -136,13 +137,13 @@ class _LoginState extends State<Login> {
                   color: const Color.fromRGBO(255, 247, 0, 1),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Row(
+                child:  Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Continue',
-                      style: TextStyle(
+                      style: GoogleFonts.brawler(
                         color: Colors.black,
                         fontSize: 18,
                       ),
@@ -174,9 +175,9 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
+                   Text(
                     'Or With',
-                    style: TextStyle(
+                    style: GoogleFonts.brawler(
                       color: Colors.black,
                       fontSize: 20,
                     ),
@@ -219,10 +220,10 @@ class _LoginState extends State<Login> {
                         height: 30,
                       ),
                     ),
-                    const Center(
+                     Center(
                       child: Text(
                         'Login with Facebook',
-                        style: TextStyle(
+                        style: GoogleFonts.brawler(
                           color: Colors.white,
                           fontSize: 18,
                         ),
@@ -263,10 +264,10 @@ class _LoginState extends State<Login> {
                         height: 30,
                       ),
                     ),
-                    const Center(
+                     Center(
                       child: Text(
                         'Login with Google',
-                        style: TextStyle(
+                        style: GoogleFonts.brawler(
                           color: Color.fromRGBO(0, 0, 0, 0.6),
                           fontSize: 18,
                         ),
@@ -291,7 +292,7 @@ class _LoginState extends State<Login> {
               child: RichText(
                 text: TextSpan(
                     text: 'Don’t have an account? ',
-                    style: const TextStyle(
+                    style:  GoogleFonts.brawler(
                       color: Color.fromRGBO(51, 51, 51, 1),
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
@@ -299,7 +300,7 @@ class _LoginState extends State<Login> {
                     children: <TextSpan>[
                       TextSpan(
                         text: ' Create one!',
-                        style: const TextStyle(
+                        style:  GoogleFonts.brawler(
                           color: Color.fromRGBO(206, 145, 205, 1),
                         ),
                         recognizer: TapGestureRecognizer()

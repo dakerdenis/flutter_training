@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pets_universe/main/login.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyButton extends StatelessWidget {
 
@@ -32,10 +33,10 @@ class MyButton extends StatelessWidget {
             bottomRight: Radius.circular(0.0), // No border on right
           ),
         ),
-        child: const Center(
+        child:  Center(
           child: Text(
             'Get Started',
-            style: TextStyle(
+            style: GoogleFonts.brawler(
               color: Colors.white, // Text color
               fontWeight: FontWeight.w400,
               fontSize: 18,
