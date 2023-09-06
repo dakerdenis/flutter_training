@@ -25,10 +25,32 @@ class _SliderMainState extends State<SliderMain> {
       ],
       options: CarouselOptions(
         height: double.maxFinite,
-        enlargeCenterPage: true,
-        viewportFraction: 1,
+        // ...other options...
         enableInfiniteScroll: false, // Enable infinite scrolling (optional)
-// Animation curve for auto play (optional)
+        autoPlay: false, // Auto play the carousel (optional)
+        onPageChanged: (index, reason) {
+          // Callback when the page is changed
+          print(index);
+        },
+        // Pagination settings
+        enlargeCenterPage: false, // Make the current item larger (optional)
+        aspectRatio: 16 / 9, // Aspect ratio of each item (optional)
+        viewportFraction:
+            1, // Fraction of the viewport width each item should occupy (optional)
+        // Pagination dot settings
+        scrollDirection:
+            Axis.horizontal, // Scroll direction (horizontal or vertical)
+        autoPlayInterval: Duration(seconds: 3), // Auto play interval (optional)
+        autoPlayAnimationDuration: Duration(
+            milliseconds: 800), // Auto play animation duration (optional)
+        autoPlayCurve:
+            Curves.fastOutSlowIn, // Animation curve for auto play (optional)
+        pauseAutoPlayOnTouch:
+            true, // Pause auto play when user interacts with the carousel (optional)
+        pauseAutoPlayOnManualNavigate:
+            true, // Pause auto play when user manually navigates (optional) // Set the desired height (optional)
+        // Pagination dot settings
+
       ),
     );
   }
@@ -84,7 +106,6 @@ class _SliderMainState extends State<SliderMain> {
                 ),
               )),
         ),
-
         const Positioned(
           bottom: 0,
           right: 0,
