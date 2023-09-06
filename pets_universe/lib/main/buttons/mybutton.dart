@@ -37,7 +37,8 @@ class MyButton extends StatelessWidget {
             'Get Started',
             style: TextStyle(
               color: Colors.white, // Text color
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
+              fontSize: 18,
             ),
           ),
         ),

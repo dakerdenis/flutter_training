@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
     print('Link Tapped !');
   }
   void _loginContainer(){
-       Navigator.push(context, MaterialPageRoute(builder:(BuildContext context)=>Home()));
+       Navigator.push(context, MaterialPageRoute(builder:(BuildContext context)=>const Home()));
   }
 
   void _onContainerTapped() {
@@ -212,7 +212,7 @@ class _LoginState extends State<Login> {
                     Positioned(
                       left: 0,
                       top: 0,
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.1,
                       child: Image.asset(
                         'assets/facebook.png',
                         width: 30,
@@ -256,7 +256,7 @@ class _LoginState extends State<Login> {
                     Positioned(
                       left: 0,
                       top: 0,
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.1,
                       child: Image.asset(
                         'assets/Google.png',
                         width: 30,
