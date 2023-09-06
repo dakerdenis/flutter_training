@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
   google_fonts: ^5.1.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/123.jpg
     - assets/323.svg
+    - assets/323.png
     - assets/facebook.png
     - assets/Google.png
     - assets/Arrow.png
@@ -72,6 +74,15 @@ flutter:
     - assets/cat1.png
     - assets/cloud.png
     - assets/cloud.svg
+  # slider 1
+    - assets/slide1.png
+  #slider 2
+    - assets/slide2_rabbit.png
+    - assets/slide2_text.svg
+  #slider 3
+    - assets/slide3_dog.png
+    - assets/slide3_text.svg
+    - assets/slide3_text.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

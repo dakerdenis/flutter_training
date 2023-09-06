@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home.dart';
 
@@ -67,8 +66,8 @@ class _LoginState extends State<Login> {
               width: 200,
               height: 150,
               child: Center(
-                child: SvgPicture.asset(
-                  'assets/323.svg',
+                child: Image.asset(
+                  'assets/323.png',
                   width: 128,
                   height: 134,
 
