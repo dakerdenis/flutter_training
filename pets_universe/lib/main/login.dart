@@ -138,9 +138,10 @@ class _LoginState extends State<Login> {
                     width: 116,
                     height: 1,
                     color: Colors.black,
-
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   const Text(
                     'Or With',
                     style: TextStyle(
@@ -148,7 +149,9 @@ class _LoginState extends State<Login> {
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Container(
                     width: 116,
                     height: 1,
@@ -159,6 +162,35 @@ class _LoginState extends State<Login> {
             ),
           ),
 
+          ///!------FACEBOOK container
+          SizedBox(
+            width: double.infinity,
+            height: 60,
+            child: FractionallySizedBox(
+              widthFactor: 0.8,
+              heightFactor: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(24, 119, 242, 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: Image.asset(
+                        'assets/facebook.png',
+                        width: 30,
+                        height: 30,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
           //!----------BOTTOM CONTAINER WITH REGISTRATION LINK
           Container(
             width: double.infinity,
