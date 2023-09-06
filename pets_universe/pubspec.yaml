@@ -67,8 +67,8 @@ flutter:
     - assets/Arrow.png
     - assets/pu_landing.png
     - assets/pu_landing2.png
-
-
+    - assets/cat1.png
+    - assets/cloud.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
