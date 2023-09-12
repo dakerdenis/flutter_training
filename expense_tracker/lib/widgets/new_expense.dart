@@ -98,6 +98,8 @@ class _NewExpenseState extends State<NewExpense> {
   Widget build(BuildContext context) {
     final kyboardSpace = MediaQuery.of(context).viewInsets.bottom;
     return LayoutBuilder(builder: (ctx, constraints) {
+      final width = constraints.maxWidth;
+      // ignore: avoid_print
       print(constraints.minWidth);
       return SizedBox(
         height: double.infinity,
@@ -106,14 +108,52 @@ class _NewExpenseState extends State<NewExpense> {
             padding: EdgeInsets.fromLTRB(16, 16, 16, kyboardSpace + 16),
             child: Column(
               children: [
-                TextField(
-                  controller: _titleController,
-                  maxLength: 50,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    label: Text('Title'),
+                if (width >= 600)
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: _titleController,
+                          maxLength: 50,
+                          keyboardType: TextInputType.text,
+                          decoration: const InputDecoration(
+                            label: Text('Title'),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 24,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          controller: _priceCOntroller,
+                          maxLength: 10,
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            prefixText: '\$',
+                            label: Text('Price'),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width:24),
+                      Expanded(child: TextField(
+                        controller: _priceCOntroller,
+                        maxLength: 50,
+                        decoration: const InputDecoration(
+                          label: Text('Title'),
+                        ),
+                      ),
+                      ),
+                    ],
+                  )
+                else
+                  TextField(
+                    controller: _titleController,
+                    maxLength: 50,
+                    decoration: const InputDecoration(
+                      label: Text('Title'),
+                    ),
                   ),
-                ),
                 Row(children: [
                   Expanded(
                     child: TextField(
