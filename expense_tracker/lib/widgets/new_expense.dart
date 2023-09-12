@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 import 'package:expense_tracker/models/expense.dart';
 
@@ -64,9 +65,10 @@ class _NewExpenseState extends State<NewExpense> {
     widget.onAddExpense(Expense(
         title: _titleController.text,
         amount: enteredAmount,
-        date: _selectedDate!, //! ! - this mark telling dart that we're sure that it'll not be null
+        date:
+            _selectedDate!, //! ! - this mark telling dart that we're sure that it'll not be null
         category: _selectedCategory));
-        Navigator.pop(context);
+    Navigator.pop(context);
   }
 
   @override
@@ -94,89 +96,96 @@ class _NewExpenseState extends State<NewExpense> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16,48,16,16),
-      child: Column(
-        children: [
-          TextField(
-            controller: _titleController,
-            maxLength: 50,
-            keyboardType: TextInputType.text,
-            decoration: const InputDecoration(
-              label: Text('Title'),
-            ),
-          ),
-          Row(children: [
-            Expanded(
-              child: TextField(
-                controller: _priceCOntroller,
-                maxLength: 10,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  prefixText: '\$',
-                  label: Text('Price'),
+    final kyboardSpace = MediaQuery.of(context).viewInsets.bottom;
+    return LayoutBuilder(builder: (ctx, constraints) {
+      print(constraints.minWidth);
+      return SizedBox(
+        height: double.infinity,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(16, 16, 16, kyboardSpace + 16),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _titleController,
+                  maxLength: 50,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    label: Text('Title'),
+                  ),
                 ),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(_selectedDate == null
-                      ? 'No date selected'
-                      : formatter.format(_selectedDate!)),
-//! Exclamation mark tells Flutter that value that could be null, will never be a null
-                  IconButton(
-                    onPressed: _presentDatePicker,
-                    icon: const Icon(
-                      Icons.calendar_month,
+                Row(children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _priceCOntroller,
+                      maxLength: 10,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        prefixText: '\$',
+                        label: Text('Price'),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(_selectedDate == null
+                            ? 'No date selected'
+                            : formatter.format(_selectedDate!)),
+                        //! Exclamation mark tells Flutter that value that could be null, will never be a null
+                        IconButton(
+                          onPressed: _presentDatePicker,
+                          icon: const Icon(
+                            Icons.calendar_month,
+                          ),
+                        )
+                      ],
                     ),
                   )
-                ],
-              ),
-            )
-          ]),
-          Row(
-            children: [
-              DropdownButton(
-                  value: _selectedCategory,
-                  items: Category.values
-                      .map(
-                        (category) => DropdownMenuItem(
-                          value: category,
-                          child: Text(category.name.toUpperCase()),
-                        ),
-                      )
-                      .toList(),
-                  onChanged: (value) {
-                    if (value == null) {
-                      return;
-                    }
-                    setState(() {
-                      _selectedCategory = value;
-                    });
-                  }),
-              const Spacer(),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  //removes overlay from the screen
-                },
-                child: const Text('reset'),
-              ),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: _submitExpenseData,
-                child: const Text('Save Expense'),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
+                ]),
+                Row(
+                  children: [
+                    DropdownButton(
+                        value: _selectedCategory,
+                        items: Category.values
+                            .map(
+                              (category) => DropdownMenuItem(
+                                value: category,
+                                child: Text(category.name.toUpperCase()),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (value) {
+                          if (value == null) {
+                            return;
+                          }
+                          setState(() {
+                            _selectedCategory = value;
+                          });
+                        }),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        //removes overlay from the screen
+                      },
+                      child: const Text('reset'),
+                    ),
+                    const Spacer(),
+                    ElevatedButton(
+                      onPressed: _submitExpenseData,
+                      child: const Text('Save Expense'),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+    });
   }
 }
-
-

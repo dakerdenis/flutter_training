@@ -33,6 +33,7 @@ class _ExpensesState extends State<Expenses> {
   //! - открытие модального окна на весь экран
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      useSafeArea: true,
         isScrollControlled: true,
         context: context,
         builder: (ctx) {
