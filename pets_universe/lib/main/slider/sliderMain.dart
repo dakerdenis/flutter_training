@@ -5,7 +5,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../buttons/mybutton.dart';
 
 class SliderMain extends StatefulWidget {
-  const SliderMain({super.key});
+  const SliderMain({super.key, required this.onIndexChanged});
+  final Function(int) onIndexChanged;
+
 
   @override
   State<StatefulWidget> createState() {
@@ -14,6 +16,8 @@ class SliderMain extends StatefulWidget {
 }
 
 class _SliderMainState extends State<SliderMain> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
@@ -30,7 +34,10 @@ class _SliderMainState extends State<SliderMain> {
         autoPlay: false, // Auto play the carousel (optional)
         onPageChanged: (index, reason) {
           // Callback when the page is changed
-          print(index);
+          setState(() {
+            currentIndex = index;
+          });
+          widget.onIndexChanged(currentIndex);
         },
         // Pagination settings
         enlargeCenterPage: false, // Make the current item larger (optional)

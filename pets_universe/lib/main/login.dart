@@ -167,7 +167,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 120,
+                    width: 100,
                     height: 1,
                     color: Colors.black,
                   ),
@@ -185,7 +185,7 @@ class _LoginState extends State<Login> {
                     width: 10,
                   ),
                   Container(
-                    width: 120,
+                    width: 100,
                     height: 1,
                     color: Colors.black,
                   ),
