@@ -18,6 +18,11 @@ class SliderMain extends StatefulWidget {
 class _SliderMainState extends State<SliderMain> {
   int currentIndex = 0;
 
+
+  void openLogin(){
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
