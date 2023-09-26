@@ -20,7 +20,7 @@ class _SliderMainState extends State<SliderMain> {
 
 
   void openLogin(){
-
+      
   }
 
   @override

@@ -157,17 +157,19 @@ class _LoginState extends State<Login> {
 
           ///!--------or with -- container
           SizedBox(
+            
             width: double.infinity,
             height: 50,
             child: FractionallySizedBox(
               widthFactor: 0.8,
               heightFactor: 1,
               child: Row(
+              
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 100,
+                    width: MediaQuery.of(context).size.width,
                     height: 1,
                     color: Colors.black,
                   ),
