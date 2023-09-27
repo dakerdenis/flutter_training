@@ -3,10 +3,7 @@ import 'package:flutter_internals/keys/keys.dart';
 
 import 'package:flutter_internals/ui_updates_demo.dart';
 
-void main() {
-  final numbers = [1,2,3];
-  numbers.add(4);
-  
+void main() {  
   runApp(const App());
 }
 
