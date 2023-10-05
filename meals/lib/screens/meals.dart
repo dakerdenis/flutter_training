@@ -25,7 +25,12 @@ class MealsScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text("Something went wrong !"),
+            Text(
+              "Something went wrong !",
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+            ),
             const SizedBox(
               height: 16,
             ),
@@ -39,6 +44,17 @@ class MealsScreen extends StatelessWidget {
         ),
       );
     }
+
+    if(meals.isNotEmpty){
+      content = ListView.builder(
+      itemBuilder: (ctx, index) => Text(
+        meals[index].title,
+      ),
+    );
+    }
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
