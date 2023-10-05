@@ -1,59 +1,49 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:meals/models/meal.dart';
 
-class MealsScreen extends StatelessWidget{
-  const MealsScreen({super.key});
-  
-  
-
-
-  @override
-  Widget build(BuildContext context){
-    return
-  }
-
-}
-
-
-enum Complexity {
-  simple,
-  challenging,
-  hard,
-}
-
-enum Affordability {
-  affordable,
-  pricey,
-  luxurious,
-}
-
-class Meal {
-  const Meal({
-    required this.id,
-    required this.categories,
+class MealsScreen extends StatelessWidget {
+  const MealsScreen({
+    super.key,
     required this.title,
-    required this.imageUrl,
-    required this.ingredients,
-    required this.steps,
-    required this.duration,
-    required this.complexity,
-    required this.affordability,
-    required this.isGlutenFree,
-    required this.isLactoseFree,
-    required this.isVegan,
-    required this.isVegetarian,
+    required this.meals,
   });
 
-  final String id;
-  final List<String> categories;
   final String title;
-  final String imageUrl;
-  final List<String> ingredients;
-  final List<String> steps;
-  final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
-  final bool isGlutenFree;
-  final bool isLactoseFree;
-  final bool isVegan;
-  final bool isVegetarian;
+  final List<Meal> meals;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget content = ListView.builder(
+      itemBuilder: (ctx, index) => Text(
+        meals[index].title,
+      ),
+    );
+
+    if (meals.isEmpty) {
+      content = Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text("Something went wrong !"),
+            const SizedBox(
+              height: 16,
+            ),
+            Text(
+              "Stalker 228",
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+            ),
+          ],
+        ),
+      );
+    }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: content,
+    );
+  }
 }
