@@ -11,7 +11,7 @@ class MealItem extends StatelessWidget {
   final Meal meal;
 
   String get ComplexityText{
-    return meal.complexity.name[0].toUpperCase() +;
+    return meal.complexity.name[0].toUpperCase();
   }
 
   @override
@@ -62,6 +62,7 @@ class MealItem extends StatelessWidget {
                         const SizedBox(
                           width: 12,
                         ),
+                        
                         MealItemTrait(
                           icon: Icons.work,
                           label: '${meal.duration} min',
